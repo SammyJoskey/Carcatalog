@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<table class="table table-striped col-lg-6 mx-auto">
+    <thead>
+        <tr>
+            <th > Производитель </td>
+            <th > Модель </td>
+            <th > Год выпуска </td>
+            <th > Цвет </td>
+            <th > Коробка передач </td>          
+        </tr>
+    </thead>
+    {% if cars %}
+    <tbody>
+        {% for car in cars %}
+        <tr>
+            <td > {{ car.brand }} </td>
+            <td > {{ car.model_of_car }} </td>
+            <td > {{ car.year }} </td>
+            <td > {{ car.color }} </td>
+            <td > {{ car.get_transmission_display }} </td>
+            {% endfor %}
+        </tr>
+    </tbody>
+</table>
+
+{% else %}
+<h2 style="display: flex; justify-content: center;">По заданным параметрам автомобилей не найдено.</h2>
+{% endif %}
+{% endblock content %}
